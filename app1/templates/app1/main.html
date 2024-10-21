@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block md_nav_item %}
+<div class='bx bx-dt-left'></div>
+<div class='month-txt'>OCTOBER</div>
+<div class='bx bx-calendar'></div>
+<div class='bx bx-dt-right'></div>
+{% endblock md_nav_item %}
+
+{% block rightnavitem %}
+
+  <button class='create-btn'><a href="{% url "app1:create" %}" class='bx bx-plus'></a></button>
+{% endblock rightnavitem %}
+
+{% block content %}
+
+<h3>안녕하세요. {{user.username}}님</h3>
+<div class='board-wrapper'>
+  <div class='board-item item-a'></div>
+  <div class='board-item b'></div>
+  <div class='board-item c'></div>
+  <div class='board-item'></div>
+  <div class='board-item'></div>
+  <div class='board-item'></div>
+  <div class='board-item'></div>
+</div>
+{% if user.image %}
+  <img src="{{ user.image.url }}" alt="img" class='user-image'>
+{% endif %}
+
+{% endblock content %}

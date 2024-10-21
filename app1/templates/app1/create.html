@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block md_nav_item %}
+<div class='month-txt'>CREATE</div>
+{% endblock md_nav_item %}
+
+
+
+{% block content %}
+<form action="{% url "app1:create" %}" method="POST" class='create-form'>
+  {% csrf_token %}
+  {{form.as_p}}
+  <div class='s-btn'>
+    <input type="submit" class="submit-btn" value='UPLOAD'>
+  </div>
+</form>
+{% endblock content %}

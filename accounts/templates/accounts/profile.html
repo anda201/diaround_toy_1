@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block md_nav_item %}
+<div class='month-txt'>MY PROFILE</div>
+{% endblock md_nav_item %}
+
+{% block content %}
+<h1>{{ person.username }}의 프로필</h1>
+{% if request.user != person %}
+  <form action="{% url "accounts:follow" person.pk %}" method='POST'>
+    {% csrf_token %}
+    {% if request.user in person.followers.all %}
+      <input type="submit" value='unfollow'>
+    {% else %}
+      <input type="submit" value='follow'>
+    {% endif %}
+  </form>
+
+{% endif %}
+
+
+{% endblock content %}
+
+
